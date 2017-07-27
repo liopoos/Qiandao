@@ -51,7 +51,10 @@
 
 ## 更新日志
 
-2017-02-11 修改css样式
+- 2017-02-11 修改css样式
+
+
+- 2017-07-27 修复网易云音乐cookie添加无效的问题。该问题是由于浏览器的GET参数及PHP参数长度限制问题。
 
   
 
@@ -108,6 +111,8 @@ CREATE TABLE `userstatus` (
 或直接导入*qiandao.sql*。
 
 3.配置*config.php*文件，输入数据库host，username，password和数据库名称。
+
+
 
 4.注册用户
 
