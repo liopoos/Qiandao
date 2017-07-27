@@ -7,8 +7,8 @@
  * 网易云音乐cookies绑定
  */
 include('../sql.php');
-$uuid = $_GET['u'];
-$cookies = $_GET['c'];
+$uuid = $_POST['u'];
+$cookies = $_POST['c'];
 $check = json_decode(checkCloumusic($cookies), true);
 if ($check['code'] == 301) {
     $status['code'] = -2;
@@ -36,15 +36,14 @@ if ($check['code'] == 301) {
 
 
     } else {
-        $status['code'] = -1;
+        $status['code'] = -3;
     }
 }
 
-function checkCloumusic($cookies)
+function checkCloumusic($cookie_file)
 {
     $url = "http://music.163.com/api/point/dailyTask?type=0";
     $ch = curl_init($url);
-    $cookie_file = $cookies;
     curl_setopt($ch, CURLOPT_HTTPHEADER, Array(
         "Pragma:no-cache",
         "DNT:1",

@@ -71,7 +71,7 @@ mysqli_free_result($result);
 <div class="panel panel-info">
     <div class="panel-heading">绑定</div>
     <div class="panel-body">
-        <form class="form-cloudmusic-add">
+        <form class="form-cloudmusic-add" method="post" action="cloudmusic/addCloudmusic.php">
             <label for="inputEmail">Cookies</label>
             <input type="text" id="input-cloudmusic-cookie" class="form-control" placeholder="请输入Cookies" required
                    autofocus><br>

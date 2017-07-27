@@ -58,8 +58,12 @@ $(document).ready(function () {
     $('#content').on('click', '#cloudmusic-add', function () {
         if ($('#input-cloudmusic-cookie').val() != "") {
             $.ajax({
-                type: "GET",
-                url: "./cloudmusic/addCloudmusic.php?u=" + u + "&c=" + $('#input-cloudmusic-cookie').val(),
+                type: "POST",
+                url: "./cloudmusic/addCloudmusic.php",
+                data: {
+                    "u": u,
+                    "c": $('#input-cloudmusic-cookie').val()
+                },
                 dataType: "json",
                 success: function (result) {
                     if (result.code == 1) {

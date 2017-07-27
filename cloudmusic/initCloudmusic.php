@@ -68,11 +68,10 @@ function startCloudmusic()
     return json_encode($status);
 }
 
-function initCloumusic($cookies, $type)
+function initCloumusic($cookie_file, $type)
 {
     $url = "http://music.163.com/api/point/dailyTask?type=" . $type;
     $ch = curl_init($url);
-    $cookie_file = $cookies;
     curl_setopt($ch, CURLOPT_HTTPHEADER, Array(
         "Pragma:no-cache",
         "DNT:1",
@@ -91,6 +90,7 @@ function initCloumusic($cookies, $type)
     curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
     $response = curl_exec($ch);
     curl_close($ch);
+    return $response;
     return $response;
 }
 
